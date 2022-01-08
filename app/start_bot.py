@@ -1,5 +1,5 @@
 import discord
-from app.message_handler import MessageHandler
+from message_handler import MessageHandler
 
 client = discord.Client()
 

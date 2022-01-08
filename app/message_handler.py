@@ -61,7 +61,7 @@ class MessageHandler:
         elif(adder is not None):
             value += adder
 
-        for x in range(temp_rolls):
+        for x in temp_rolls:
             ret_string += x + '+'
             if(multiplyer and adder is not None):
                 ret_string += adder + ') + ('

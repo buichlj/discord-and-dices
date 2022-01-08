@@ -12,6 +12,7 @@ class MessageHandler:
             if message_lower.startswith('$hello'):
                 return_string = f'Hello {message.author}!'
             elif message_lower.startswith('$roll') or message_lower.startswith('$r'):
+                print("HERE1")
                 return_string = self.roll_dice(message_lower)
             elif message_lower.startswith('$help'):
                 return_string = self.help_message()
@@ -22,6 +23,8 @@ class MessageHandler:
         return return_string
 
     def roll_dice(self, dice_string):
+        print("HERE2")
+        print(dice_string)
         number = None
         die = None
         adder = None
@@ -33,6 +36,7 @@ class MessageHandler:
         dice_array = dice_string.split('d')
 
         if(dice_array.length != 2):
+            print("HERE3")
             raise Exception("Invalid command")
 
         number = int(dice_array[0])
@@ -45,6 +49,7 @@ class MessageHandler:
             temp_array = dice_array[1].split('+')
 
             if(temp_array != 2):
+                print("HERE4")
                 raise Exception("Invalid command")
 
             dice_array[1] = temp_array[0]

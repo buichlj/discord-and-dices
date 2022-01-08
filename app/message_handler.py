@@ -8,16 +8,16 @@ class MessageHandler:
         message_lower = message.content.lower()
         return_string = ''
 
-        try:
-            if message_lower.startswith('$hello'):
-                return_string = f'Hello {message.author}!'
-            elif message_lower.startswith('$roll') or message_lower.startswith('$r'):
-                return_string = self.roll_dice(message_lower)
-            elif message_lower.startswith('$help'):
-                return_string = self.help_message()
+        # try:
+        if message_lower.startswith('$hello'):
+            return_string = f'Hello {message.author}!'
+        elif message_lower.startswith('$roll') or message_lower.startswith('$r'):
+            return_string = self.roll_dice(message_lower)
+        elif message_lower.startswith('$help'):
+            return_string = self.help_message()
 
-        except:
-            return_string = 'Command Error, type $help for a list of commands.'
+        # except:
+        #    return_string = 'Command Error, type $help for a list of commands.'
 
         return return_string
 

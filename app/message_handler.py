@@ -36,7 +36,7 @@ class MessageHandler:
         dice_array = dice_string.split('d')
         print("HERE6")
 
-        if(dice_array.length != 2):
+        if(len(dice_array) != 2):
             print("HERE3")
             raise Exception("Invalid command")
         print("HERE8")
@@ -49,7 +49,7 @@ class MessageHandler:
         if('+' in dice_array[1]):
             temp_array = dice_array[1].split('+')
 
-            if(temp_array != 2):
+            if(len(temp_array) != 2):
                 print("HERE4")
                 raise Exception("Invalid command")
 

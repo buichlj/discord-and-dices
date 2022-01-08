@@ -62,15 +62,15 @@ class MessageHandler:
             value += adder
 
         for x in temp_rolls:
-            ret_string += x + '+'
+            ret_string += str(x) + '+'
             if(multiplyer and adder is not None):
-                ret_string += adder + ') + ('
+                ret_string += str(adder) + ') + ('
 
         ret_string = ret_string.rsplit('+', 1)[0]
         if not multiplyer and adder is not None:
-            ret_string += '+ ' + adder
+            ret_string += '+ ' + str(adder)
 
-        ret_string += '= ' + value
+        ret_string += '= ' + str(value)
 
         return ret_string
 

@@ -58,4 +58,9 @@ class MessageHandler:
         return retValue
 
     def help_message(self):
-        return "TODO: Insert a list of commands and examples."
+        return """Commands: \n
+        $help
+        $hello
+        $roll <number of dice>d<type of dice> <optional: +<addition modifier (use parentheses to denote multiplier)>>
+        $r alternate to $roll
+        """

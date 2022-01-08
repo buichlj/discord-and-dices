@@ -45,7 +45,7 @@ class MessageHandler:
                 raise Exception("Invalid command")
 
             dice_array[1] = temp_array[0]
-            adder = temp_array[1]
+            adder = int(temp_array[1])
         die = int(dice_array[1])
         for x in range(number):
             retValue += random.randrange(1, die+1)

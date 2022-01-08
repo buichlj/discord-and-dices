@@ -68,9 +68,7 @@ class MessageHandler:
 
         ret_string = ret_string.rsplit('+', 1)[0]
         if not multiplyer and adder is not None:
-            ret_string += '+ ' + str(adder)
-        else:
-            ret_string += ') '
+            ret_string += ') + ' + str(adder)
 
         ret_string += ' = ' + str(value)
 

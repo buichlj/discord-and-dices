@@ -39,9 +39,9 @@ class MessageHandler:
         if(dice_array.length != 2):
             print("HERE3")
             raise Exception("Invalid command")
-
+        print("HERE8")
         number = int(dice_array[0])
-
+        print("HERE9")
         if('(+' in dice_array[1]):
             multiplyer = True
             dice_array[1] = dice_array[1].replace('(', '').replace(')', '')
@@ -55,9 +55,9 @@ class MessageHandler:
 
             dice_array[1] = temp_array[0]
             adder = temp_array[1]
-
+        print("HERE7")
         die = int(dice_array[1])
-
+        print("HERE10")
         for x in range(number):
             retValue += random.randrange(1, die+1)
 

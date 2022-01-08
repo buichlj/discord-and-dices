@@ -26,7 +26,9 @@ class MessageHandler:
         die = None
         adder = None
         multiplyer = False
-        retValue = 0
+        value = 0
+        ret_string = '('
+
         dice_string = dice_string.replace(
             ' ', '').replace('$roll', '').replace('$r', '')
         dice_array = dice_string.split('d')
@@ -47,15 +49,30 @@ class MessageHandler:
             dice_array[1] = temp_array[0]
             adder = int(temp_array[1])
         die = int(dice_array[1])
+
+        temp_rolls = []
         for x in range(number):
-            retValue += random.randrange(1, die+1)
+            temp_number = random.randrange(1, die+1)
+            temp_rolls.append(temp_number)
+            value += temp_number
 
         if(multiplyer and adder is not None):
-            retValue += (number * adder)
+            value += (number * adder)
         elif(adder is not None):
-            retValue += adder
+            value += adder
 
-        return retValue
+        for x in range(temp_rolls):
+            ret_string += x + '+'
+            if(multiplyer and adder is not None):
+                ret_string += adder + ') + ('
+
+        ret_string = ret_string.rsplit('+', 1)[0]
+        if not multiplyer and adder is not None:
+            ret_string += '+ ' + adder
+
+        ret_string += '= ' + value
+
+        return ret_string
 
     def help_message(self):
         return """Commands:

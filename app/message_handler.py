@@ -30,10 +30,11 @@ class MessageHandler:
         adder = None
         multiplyer = False
         retValue = 0
-
+        print("HERE5")
         dice_string = dice_string.replace(
             ' ', '').replace('$roll', '').replace('$r', '')
         dice_array = dice_string.split('d')
+        print("HERE6")
 
         if(dice_array.length != 2):
             print("HERE3")

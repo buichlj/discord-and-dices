@@ -58,7 +58,7 @@ class MessageHandler:
         return retValue
 
     def help_message(self):
-        return """Commands: \n
+        return """Commands:
         $help
         $hello
         $roll <number of dice>d<type of dice> <optional: +<addition modifier (use parentheses to denote multiplier)>>

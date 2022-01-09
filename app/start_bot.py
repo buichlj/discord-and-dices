@@ -20,8 +20,12 @@ async def on_message(message):
             await message.channel.send(return_message)
         return
 
-try:
-    file = open('/etc/discord-and-dices/discord-bot-key.key', 'r')
-    client.run(file.read())
-finally:
-    client.close()
+
+async def start():
+    try:
+        file = open('/etc/discord-and-dices/discord-bot-key.key', 'r')
+        client.run(file.read())
+    finally:
+        await client.close()
+
+start()

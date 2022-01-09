@@ -14,7 +14,9 @@ class MessageHandler:
             elif message_lower.startswith('$roll') or message_lower.startswith('$r'):
                 return_string = self.roll_dice(message_lower)
             elif message_lower.startswith('$help'):
-                return_string = self.help_message()
+                return_string = self.help_message():
+            elif message_lower.startswith('$github'):
+                return_string = 'https://github.com/buichlj/discord-and-dices'
 
         except:
             return_string = 'Command Error, type $help for a list of commands.'

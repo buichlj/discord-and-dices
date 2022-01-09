@@ -22,7 +22,6 @@ async def on_message(message):
         return
 
 try:
-    asyncio.run(60)
     file = open('/etc/discord-and-dices/discord-bot-key.key', 'r')
     client.run(file.read())
 finally:

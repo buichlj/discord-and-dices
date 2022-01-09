@@ -1,6 +1,6 @@
+import asyncio
 import discord
 from message_handler import MessageHandler
-import asyncio
 
 client = discord.Client()
 
@@ -22,11 +22,6 @@ async def on_message(message):
         return
 
 
-async def start():
-    try:
-        file = open('/etc/discord-and-dices/discord-bot-key.key', 'r')
-        client.run(file.read())
-    finally:
-        await client.close()
-
-asyncio.run(start())
+file = open('/etc/discord-and-dices/discord-bot-key.key', 'r')
+client.run(file.read())
+asyncio.run(client.close())

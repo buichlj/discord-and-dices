@@ -21,7 +21,8 @@ async def on_message(message):
             await message.channel.send(return_message)
         return
 
-
-file = open('/etc/discord-and-dices/discord-bot-key.key', 'r')
-client.run(file.read())
-asyncio.run(client.close())
+try:
+    file = open('/etc/discord-and-dices/discord-bot-key.key', 'r')
+    client.run(file.read())
+finally:
+    asyncio.run(client.close())

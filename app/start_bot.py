@@ -1,5 +1,6 @@
 import discord
 from message_handler import MessageHandler
+import asyncio
 
 client = discord.Client()
 
@@ -28,4 +29,4 @@ async def start():
     finally:
         await client.close()
 
-start()
+asyncio.run(start())

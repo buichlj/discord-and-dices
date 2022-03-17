@@ -2,6 +2,7 @@ import { RequestService } from "../request-service/request.service";
 
 export class MTGLookup {
     private readonly scryFallUrl = 'https://api.scryfall.com/cards/named?fuzzy=';
+    private readonly scryFallAutoCompleteUrl = 'https://api.scryfall.com/cards/autocomplete?q=';
 
     public async lookupCard(message: string): Promise<string> {
         let returnString = '';
@@ -13,6 +14,11 @@ export class MTGLookup {
 
             if (card && card.status == 404) {
                 returnString = 'Could not find card. Try spelling it better or adding more characters.'
+                const catalog = await requestService.get(this.scryFallAutoCompleteUrl + message) as any;
+                if (catalog?.data?.length > 0) {
+                    returnString = 'Did you mean: \n';
+                    returnString += catalog.data.slice(0, 10).join('\n');
+                }
             } else if (card && card.object == 'error') {
                 returnString = `There was problems talking to scryfall: ${card.status}`
             } else if (card && card.object == 'card') {

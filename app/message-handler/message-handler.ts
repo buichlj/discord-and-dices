@@ -13,14 +13,14 @@ export class MessageHandler {
             } else if (message.startsWith('$mtg')) {
                 const mtgLookup = new MTGLookup();
                 returnMessage = await mtgLookup.lookupCard(message);
-            } else if (message.startsWith('$help')) {
+            } else if (message.startsWith('$github')) {
+                returnMessage = 'https://github.com/buichlj/discord-and-dices'
+            } else {
                 returnMessage = `Commands:
                                 $help
                                 $hello
                                 $roll <number of dice>d<type of dice> <optional: +<addition modifier (use parentheses to denote multiplier)>>
                                 $r alternate to $roll`
-            } else if (message.startsWith('$github')) {
-                returnMessage = 'https://github.com/buichlj/discord-and-dices'
             }
         } catch (ex) {
             returnMessage = 'Command Error, type $help for a list of commands.'

@@ -1,5 +1,6 @@
 import { DiceRoller } from "../dice-roller/dice-roller";
 import { MTGLookup } from "../mtg-lookup/mtg-lookup";
+import { SpellLookup } from "../spell-lookup/spell-lookup";
 
 export class MessageHandler {
 
@@ -13,6 +14,9 @@ export class MessageHandler {
             } else if (message.startsWith('$mtg')) {
                 const mtgLookup = new MTGLookup();
                 returnMessage = await mtgLookup.lookupCard(message);
+            }else if (message.startsWith('$spell')) {
+                const spellLookup = new SpellLookup();
+                returnMessage = await spellLookup.lookupSpell(message);
             } else if (message.startsWith('$github')) {
                 returnMessage = 'https://github.com/buichlj/discord-and-dices'
             } else {

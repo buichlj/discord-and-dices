@@ -13,7 +13,7 @@ export class MTGLookup {
             const card = await requestService.get(this.scryFallUrl + message) as any;
 
             if (card && card.status == 404) {
-                returnString = 'Could not find card. Try spelling it better or adding more characters.'
+                returnString = 'Could not find card. Try spelling it better or adding more characters, idiot.'
                 const catalog = await requestService.get(this.scryFallAutoCompleteUrl + message) as any;
                 if (catalog?.data?.length > 0) {
                     returnString = 'Did you mean: \n';
@@ -22,7 +22,11 @@ export class MTGLookup {
             } else if (card && card.object == 'error') {
                 returnString = `There was problems talking to scryfall: ${card.status}`
             } else if (card && card.object == 'card') {
-                returnString = card.image_uris.large;
+                if (card.card_faces) {
+                    returnString = card.card_faces[0].image_uris.large + '\n' + card.card_faces[1].image_uris.large;
+                } else {
+                    returnString = card.image_uris.large;
+                }
             }
 
         } catch (ex) {

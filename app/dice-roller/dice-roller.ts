@@ -64,6 +64,10 @@ export class DiceRoller {
 
         returnString += ' = ' + value
 
+        if (returnString.length >= 2000) {
+            returnString = value + ' (full text too long for message)';
+        }
+
         return returnString
 
     }

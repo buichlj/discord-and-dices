@@ -22,14 +22,21 @@ export class MTGLookup {
             } else if (card && card.object == 'error') {
                 returnString = `There was problems talking to scryfall: ${card.status}`
             } else if (card && card.object == 'card') {
-                if (card.card_faces) {
+                if (card.card_faces && card.card_faces[0].image_uris && card.card_faces[1].image_uris) {
                     returnString = card.card_faces[0].image_uris.large + '\n' + card.card_faces[1].image_uris.large;
                 } else {
                     returnString = card.image_uris.large;
                 }
+
+                if (card.prices && card.prices.usd) {
+                    returnString += `\n Price: $${card.prices.usd}`;
+                } else {
+                    returnString += '\n Price: Unknown';
+                }
             }
 
         } catch (ex) {
+            console.log(ex);
             returnString = 'Error getting card, try and be better.';
         }
 

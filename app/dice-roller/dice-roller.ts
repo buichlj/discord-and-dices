@@ -71,4 +71,30 @@ export class DiceRoller {
         return returnString
 
     }
+
+    public rollStats(): string {
+        let stats = [];
+
+        let result = 0;
+        while (result < 14) {
+            result = this.rollStat();
+        }
+
+        stats.push(result);
+        stats.push(this.rollStat());
+        stats.push(this.rollStat());
+        stats.push(this.rollStat());
+        stats.push(this.rollStat());
+        stats.push(this.rollStat());
+
+        return stats.toString();
+    }
+
+    private rollStat(): number {
+        let first = Math.floor((Math.random() * 6) + 1);
+        let second = Math.floor((Math.random() * 6) + 1);
+        let third = Math.floor((Math.random() * 6) + 1);
+        let fourth = Math.floor((Math.random() * 6) + 1);
+        return (first + second + third + fourth) - Math.min(first, second, third, fourth);
+    }
 }

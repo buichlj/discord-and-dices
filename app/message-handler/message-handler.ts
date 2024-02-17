@@ -14,11 +14,14 @@ export class MessageHandler {
             } else if (message.startsWith('$mtg')) {
                 const mtgLookup = new MTGLookup();
                 returnMessage = await mtgLookup.lookupCard(message);
-            }else if (message.startsWith('$spell')) {
+            } else if (message.startsWith('$spell')) {
                 const spellLookup = new SpellLookup();
                 returnMessage = await spellLookup.lookupSpell(message);
             } else if (message.startsWith('$github')) {
                 returnMessage = 'https://github.com/buichlj/discord-and-dices'
+            } else if (message.startsWith('$stats')) {
+                const diceRoller = new DiceRoller();
+                returnMessage = diceRoller.rollStats();
             } else {
                 returnMessage = `Commands:
                                 $help

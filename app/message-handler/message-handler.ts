@@ -25,7 +25,7 @@ export class MessageHandler {
             } else {
                 returnMessage = `Commands:
                                 $help
-                                $hello
+                                $github for a link to the repo
                                 $roll <number of dice>d<type of dice> <optional: +<addition modifier (use parentheses to denote multiplier)>>
                                 $r alternate to $roll`
             }

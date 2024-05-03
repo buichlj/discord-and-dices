@@ -16,6 +16,10 @@ export class DiceRoller {
 
         amount = parseInt(diceArray[0]);
 
+        if (amount > 10000) {
+            return "Not today asshole!";
+        }
+
         if (diceArray[1].indexOf('(+') >= 0) {
             multiplier = true;
             diceArray[1].replace('(', '').replace(')', '');
@@ -32,6 +36,10 @@ export class DiceRoller {
         }
 
         dieType = parseInt(diceArray[1]);
+
+        if (dieType > 1000) {
+            return "You thought you were so clever";
+        }
 
         let tempRolls = [];
 

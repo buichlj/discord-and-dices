@@ -1,6 +1,6 @@
 {
   "name": "discord-and-dices",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A dice rolling bot for our discord chat.",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,8 @@
   "homepage": "https://github.com/buichlj/discord-and-dices#readme",
   "dependencies": {
     "cross-fetch": "^3.1.5",
-    "discord.js": "^14.14.1"
+    "discord.js": "^14.14.1",
+    "cron": "3.1.7"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
@@ -29,6 +30,6 @@
     "shx": "^0.3.3",
     "ts-node": "^10.2.1",
     "tsc-watch": "^4.5.0",
-    "typescript": "^4.3.5"
+    "typescript": "^5.4.5"
   }
 }

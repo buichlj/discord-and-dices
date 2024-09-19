@@ -17,7 +17,17 @@ client.on('messageCreate', async message => {
     }
 });
 
-const token = fs.readFileSync('/etc/discord-and-dices/discord-bot-key.key', 'utf8')
+var token;
+if (fs.existsSync('/etc/discord-and-dices/discord-bot-key.key')) {
+    token = fs.readFileSync('/etc/discord-and-dices/discord-bot-key.key', 'utf8');
+} else if (fs.existsSync('./token.key')) {
+    token = fs.readFileSync('./token.key', 'utf8');
+}
 
-//make sure this line is the last line
-client.login(token.trim()); //login bot using token
+// Make sure this line is the last line.
+// Login bot using token.
+if (token) {
+    client.login(token.trim());
+} else {
+    console.log('ERROR: No token.')
+}

@@ -49,7 +49,7 @@ export class MTGLookup {
             var lowestPricedCard = { prices: { usd: `${Number.MAX_SAFE_INTEGER}` } } as any;
             var prints = (await requestService.get(this.scryFallPrintsUrl + `'${cardName}'`)).data;
             prints.forEach(x => {
-                if (x && x.prices) {
+                if (x && x.prices && x.name == cardName) {
                     var newCardPrice = x.prices.usd ? x.prices.usd : `${Number.MAX_SAFE_INTEGER}`;
                     var lowCardPrice = lowestPricedCard.prices.usd ? lowestPricedCard.prices.usd : `${Number.MAX_SAFE_INTEGER}`;
                     if (Number(lowCardPrice) >= Number(newCardPrice)) {
